@@ -15,4 +15,3 @@ At IBM, my main role as a software engineer was to help solve client's most crit
 
 Outside of my job, my hobbies include traveling, hiking, cooking, and playing with my dog Ollie!
 
-Some pics below:
