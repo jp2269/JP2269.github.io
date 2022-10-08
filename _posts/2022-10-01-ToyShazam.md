@@ -1,0 +1,19 @@
+---
+title: "Toy Shazam"
+layout: posts
+---
+
+# How to build a toy version of Shazam
+
+The goal of our project was to create a program that has very similar functionality when compared to the popular app, Shazam. Shazam is an app available today that listens to small snippets of a song, recognizing the song even in the presence of background noise. Our program is similar to Shazam, but with a much smaller database of songs and processing power. The program we developed in MATLAB compares a snippet a song input to a database of mp3 files that we created, matching the song to the one in the database. By looking at the “score” of each song, we can determine which song in the database is the song in the snippet. The “score” will be explained later in the paper, but it is a number that ranges from 0 to 1; the closer you are to 1, the closer you are to a match. We then tested how the song signal functions under different conditions by applying various filters to it at the end. 
+
+
+
+We had to develop a myriad of scripts in order to create, test, and implement the program. In order to read in songs to MATLAB, we had to complete a script called “Read_Songs.m”. This script would allow us to read into MATLAB the samples from the song’s mp3 file. The read_song script takes in an input of a five second song snippet and stores it into a matrix called Y. More specifically, the song takes in a snippet from the 60 seconds to 65 seconds in the song. This matrix Y contained 220,501 rows and 2 columns. We know this because the song had a sampling rate of 44100 samples/sec and was read for 5 seconds. There were only 2 second samples columns in this matrix since there are only two stereo channels for the signal. The sampling rate is also stored into a variable, called FS, so we can check that the sampling rate of the song is 44100 samples/sec. The first part of the read_song script averages together the two stereo channels for second samples each row and stores them into a variable called y. We do this to create a mono signal to deal with instead of two stereo channels. We then remove the DC offset of the signal by subtracting the mean value of the mono signal from the mono signal for each sample of our mono signal and store it back into y. We do this to improve the effectiveness of the processing of our songs. At the end of the script, we resampled the song and stored it into a variable called y1. We also noted that when we resample, our sampling rate becomes one fifth of what it used to be because when y = (x,p,q), the length of the result y is . After completing the “read_song.m” function, we ran the function on the command line with one of the mp3 files in our database as the parameter and made sure that the output of the function had one row. This confirmed that we averaged together the two stereo channels together correctly.
+
+
+To fully test our read_song function and the resampling that occurs at the end of the function, we developed a script called “test_resample.m”. In this script, we created a signal x, the sum of two cosine signals, to test our resample function on. We then created two different resampled signals based upon our original signal. One sample was when the signal was resampled without aliasing, and one where the signal was resampled with aliasing. We computed the magnitude for each of the three signals and plotted them vs. frequency in Hertz to verify thatwe were performing our test correctly. We then compared those signals to the samples provided by a song from our database that was read in and stored into vector Y. We also removed the “DC offset” of vector Y before plotting it and comparing the magnitude of the vector to the magnitude of our original sum of sinusoids. Lastly, we also compared our resampled sum of sinusoids that has no aliasing to the resampled signal of Y that has no aliasing.
+
+# Full PDF attached
+
+<embed src="/ToyShazam.pdf" width="500" height="375" type="application/pdf">
