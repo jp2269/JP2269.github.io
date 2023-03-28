@@ -1,5 +1,5 @@
 ---
-title: "Find Rental Property Income Through Automated Calculationsr"
+title: "Find Rental Property Income Through Automated Calculations"
 layout: posts
 ---
 
