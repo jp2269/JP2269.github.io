@@ -3,8 +3,6 @@ title: "Let's make a restaurant Tinder"
 layout: posts
 ---
 
-# Title: An App for Consensus-Based Restaurant Decisions
-
 ## Abstract:
 
 This blog post discusses an app that allows users to anonymously swipe on restaurants to get a consensus on where to eat. The app uses Yelp's API to curate a list of restaurants and allows users to add their own contributions.
